@@ -12,7 +12,7 @@ def plot_algae(days, algae):
         plt.errorbar(t, [day.duna50.avg() for day in days], yerr=[day.duna50.err() for day in days], ecolor="orange", fmt="none", capsize=2)
         plt.errorbar(t, [day.duna10.avg() for day in days], yerr=[day.duna10.err() for day in days], ecolor="r", fmt="none", capsiz=2)
 
-        plt.title("Dunaliella tertiolecta")
+        plt.title("a")
 
     elif algae == "nanno":
         plt.plot(t, [day.nanno10.avg() for day in days], "r", label="10% seawater")
@@ -23,14 +23,14 @@ def plot_algae(days, algae):
         plt.errorbar(t, [day.nanno50.avg() for day in days], yerr=[day.nanno50.err() for day in days], ecolor="orange", fmt="none", capsize=2)
         plt.errorbar(t, [day.nanno10.avg() for day in days], yerr=[day.nanno10.err() for day in days], ecolor="r", fmt="none", capsize=2)
 
-        plt.title("Nannochloropsis oceanica")
+        plt.title("b")
 
         
-    plt.xlabel("Days")
+    plt.xlabel("Time (Days)")
     plt.ylabel(f"Biomass concentration\n{r'($g_{DCW}$ $L^{-1}$)'}")
     plt.ylim([-1, 9])
     plt.legend(loc="upper left")
-    plt.savefig(f"{algae}.svg")
-    #plt.show()
+    #plt.savefig(f"{algae}.svg")
+    plt.show()
 
 plot_algae(days, "nanno")
