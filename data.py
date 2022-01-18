@@ -7,7 +7,10 @@ class data():
         return (max(self.data)-min(self.data)) / 2
 
 class algae():
-    def __init__(self, day, control_1, control_2,
+    def __init__(self, day,
+                #water control measurements
+                control_1, control_2,
+                #raw OD measurements
                 A1, B1, C1, D1, E1, F1,
                 A2, B2, C2, D2, E2, F2,
                 A3, B3, C3, D3, E3, F3,
@@ -17,6 +20,8 @@ class algae():
                 ):
         self.day = day
         self.control = (control_1+control_2) / 2
+        
+        #sort by algae and salinity, convert from OD to g(DCW)/L
         self.duna10 = data([26.42*(i-self.control) for i in [A1, A2, A3, A4, A5, A6]])
         self.duna50 = data([26.42*(i-self.control) for i in [B1, B2, B3, B4, B5, B6]])
         self.duna100 = data([26.42*(i-self.control) for i in [C1, C2, C3, C4, C5, C6]])
